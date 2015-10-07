@@ -1,15 +1,16 @@
 angular.module('Eggly', [
 
 ])
-  .controller('MainCtrl', function ($scope) {
-      $scope.categories = [
+  .controller('MainCtrl', function () {
+      var main = this;
+      main.categories = [
           {"id": 0, "name": "Development"},
           {"id": 1, "name": "Design"},
           {"id": 2, "name": "Exercise"},
           {"id": 3, "name": "Humor"}
       ];
 
-      $scope.bookmarks = [
+      main.bookmarks = [
           {"id": 0, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development" },
           {"id": 1, "title": "Egghead.io", "url": "http://egghead.io", "category": "Development" },
           {"id": 2, "title": "A List Apart", "url": "http://alistapart.com/", "category": "Design" },
