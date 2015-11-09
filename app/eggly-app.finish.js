@@ -2,14 +2,15 @@ angular.module('Eggly', [
 
 ])
   .controller('MainCtrl', function ($scope) {
-      $scope.categories = [
+    var main = this;
+      main.categories = [
           {"id": 0, "name": "Development"},
           {"id": 1, "name": "Design"},
           {"id": 2, "name": "Exercise"},
           {"id": 3, "name": "Humor"}
       ];
 
-      $scope.bookmarks = [
+      main.bookmarks = [
           {"id": 0, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development" },
           {"id": 1, "title": "Egghead.io", "url": "http://egghead.io", "category": "Development" },
           {"id": 2, "title": "A List Apart", "url": "http://alistapart.com/", "category": "Design" },
@@ -21,16 +22,16 @@ angular.module('Eggly', [
           {"id": 8, "title": "Dump", "url": "http://dump.com", "category": "Humor" }
       ];
 
-      $scope.isCreating = false;
-      $scope.isEditing = false;
-      $scope.currentCategory = null;
+      main.isCreating = false;
+      main.isEditing = false;
+      main.currentCategory = null;
 
       function isCurrentCategory(category) {
-          return $scope.currentCategory !== null && category.name === $scope.currentCategory.name;
+          return main.currentCategory !== null && category.name === main.currentCategory.name;
       }
 
       function setCurrentCategory(category) {
-          $scope.currentCategory = category;
+          main.currentCategory = category;
 
           cancelCreating();
           cancelEditing();
@@ -43,16 +44,16 @@ angular.module('Eggly', [
       // CREATING AND EDITING STATES
       //-------------------------------------------------------------------------------------------------
       function shouldShowCreating() {
-          return $scope.currentCategory && !$scope.isEditing;
+          return main.currentCategory && !main.isEditing;
       }
 
       function startCreating() {
-          $scope.isCreating = true;
-          $scope.isEditing = false;
+          main.isCreating = true;
+          main.isEditing = false;
       }
 
       function cancelCreating() {
-          $scope.isCreating = false;
+          main.isCreating = false;
       }
 
       $scope.shouldShowCreating = shouldShowCreating;
@@ -60,17 +61,17 @@ angular.module('Eggly', [
       $scope.cancelCreating = cancelCreating;
 
       function shouldShowEditing() {
-          return $scope.isEditing && !$scope.isCreating;
+          return main.isEditing && !main.isCreating;
       }
 
       function startEditing() {
-          $scope.isCreating = false;
-          $scope.isEditing = true;
+          main.isCreating = false;
+          main.isEditing = true;
       }
 
       function cancelEditing() {
-          $scope.isEditing = false;
-          $scope.editedBookmark = null;
+          main.isEditing = false;
+          main.editedBookmark = null;
       }
 
       $scope.startEditing = startEditing;
