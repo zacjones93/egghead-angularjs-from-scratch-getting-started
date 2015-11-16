@@ -1,7 +1,7 @@
 angular.module('Eggly', [
 
 ])
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function () {
     var main = this;
       main.categories = [
           {"id": 0, "name": "Development"},
@@ -32,7 +32,7 @@ angular.module('Eggly', [
           main.currentCategory = category;
       }
 
-      $scope.isCurrentCategory = isCurrentCategory;
-      $scope.setCurrentCategory = setCurrentCategory;
+      main.isCurrentCategory = isCurrentCategory;
+      main.setCurrentCategory = setCurrentCategory;
   })
 ;

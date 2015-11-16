@@ -10,17 +10,17 @@
 
     <link rel="stylesheet" href="assets/css/eggly.css">
     <link rel="stylesheet" href="assets/css/animations.css">
-</head>
 <!-- updated to use recommended 'controller as' approach -->
 <!-- we've replaced the use of $scope with the preferred "controller as" syntax. see: http://toddmotto.com/digging-into-angulars-controller-as-syntax/-->
+</head>
 <body ng-controller="MainCtrl as main">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <a ng-click="setCurrentCategory(null)"><img class="logo" src="assets/img/eggly-logo.png"></a>
                 <ul class="nav nav-sidebar">
-                    <li ng-repeat="category in main.categories" ng-class="{'active':isCurrentCategory(category)}">
-                        <a ng-click="setCurrentCategory(category)">
+                    <li ng-repeat="category in main.categories" ng-class="{'active':main.isCurrentCategory(category)}">
+                        <a ng-click="main.setCurrentCategory(category)">
                             {{category.name}}
                         </a>
                     </li>
